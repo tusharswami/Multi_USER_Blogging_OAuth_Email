@@ -32,9 +32,12 @@ const SigninComponent = () => {
                 //Save user info to local storage
                 //Authenticate User
                 authenticate(data, ()=>{
-                    Router.push(`/`);
+                    if(isAuth() && isAuth().role === 1){
+                        Router.push(`/admin`);
+                    }else{
+                        Router.push(`/user`);
+                    }
                 })
-                Router.push(`/`);
             }
         });
     };

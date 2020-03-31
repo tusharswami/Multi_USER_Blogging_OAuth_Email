@@ -31,16 +31,30 @@ const Header = () => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
+            {isAuth() && isAuth().role === 1 && (
+              <NavItem>
+                <NavLink style={{ cursor: 'pointer' }} href="/admin">
+                  {`${isAuth().name}'s Dashboard`}
+                </NavLink>
+              </NavItem>
+            )}
+            {isAuth() && isAuth().role === 0 &&(
+              <NavItem>
+                <NavLink style={{ cursor: 'pointer' }} href="/user">
+                {`${isAuth().name}'s Dashboard`}
+                </NavLink>
+              </NavItem>
+            )}
           {!isAuth() && (
               <React.Fragment>
                 <NavItem>
                   <Link href="/signin">
-                    <NavLink>Signin</NavLink>
+                    <NavLink style={{ cursor: 'pointer' }}>Signin</NavLink>
                   </Link>
                 </NavItem>
                 <NavItem>
                   <Link href="/signup">
-                    <NavLink>Signup</NavLink>
+                    <NavLink style={{ cursor: 'pointer' }}>Signup</NavLink>
                   </Link>
                 </NavItem>
               </React.Fragment>
