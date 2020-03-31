@@ -11,6 +11,7 @@ const impactRoute = require('./routes/impact');
 const authRoute = require('./routes/auth');
 const userRoute = require('./routes/user');
 const categoryRoute = require('./routes/category');
+const tagRoute = require('./routes/tag');
 
 //app
 const app = express();
@@ -32,6 +33,7 @@ app.use(impactRoute);
 app.use(authRoute);
 app.use(userRoute);
 app.use(categoryRoute);
+app.use(tagRoute);
 
 //Port
 const port = process.env.PORT || 8000;
