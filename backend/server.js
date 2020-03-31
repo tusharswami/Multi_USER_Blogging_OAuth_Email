@@ -9,6 +9,7 @@ require('dotenv').config();
 // Routes Import
 const impactRoute = require('./routes/impact');
 const authRoute = require('./routes/auth');
+const userRoute = require('./routes/user');
 
 //app
 const app = express();
@@ -28,6 +29,7 @@ if(process.env.NODE_ENV === 'development'){
 //routes Middleware
 app.use(impactRoute);
 app.use(authRoute);
+app.use(userRoute);
 
 //Port
 const port = process.env.PORT || 8000;
