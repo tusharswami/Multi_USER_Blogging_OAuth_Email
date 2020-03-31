@@ -10,6 +10,7 @@ require('dotenv').config();
 const impactRoute = require('./routes/impact');
 const authRoute = require('./routes/auth');
 const userRoute = require('./routes/user');
+const categoryRoute = require('./routes/category');
 
 //app
 const app = express();
@@ -30,6 +31,7 @@ if(process.env.NODE_ENV === 'development'){
 app.use(impactRoute);
 app.use(authRoute);
 app.use(userRoute);
+app.use(categoryRoute);
 
 //Port
 const port = process.env.PORT || 8000;
