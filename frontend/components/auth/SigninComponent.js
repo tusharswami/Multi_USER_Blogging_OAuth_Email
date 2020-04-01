@@ -12,7 +12,7 @@ const SigninComponent = () => {
         showForm: true
     });
 
-    const { name, email, password, error, loading, message, showForm } = values;
+    const { email, password, error, loading, message, showForm } = values;
 
     useEffect(() => {
         isAuth() && Router.push(`/`);
@@ -22,22 +22,22 @@ const SigninComponent = () => {
         e.preventDefault();
         // console.table({ name, email, password, error, loading, message, showForm });
         setValues({ ...values, loading: true, error: false });
-        const user = { name, email, password };
+        const user = { email, password };
 
         signin(user).then(data => {
             if (data.error) {
                 setValues({ ...values, error: data.error, loading: false });
             } else {
-                //Save user token to cookie
-                //Save user info to local storage
-                //Authenticate User
-                authenticate(data, ()=>{
-                    if(isAuth() && isAuth().role === 1){
+                // save user token to cookie
+                // save user info to localstorage
+                // authenticate user
+                authenticate(data, () => {
+                    if (isAuth() && isAuth().role === 1) {
                         Router.push(`/admin`);
-                    }else{
+                    } else {
                         Router.push(`/user`);
                     }
-                })
+                });
             }
         });
     };

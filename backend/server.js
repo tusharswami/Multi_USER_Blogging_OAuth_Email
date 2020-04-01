@@ -1,42 +1,45 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
+// bring routes
+const blogRoutes = require('./routes/blog');
+const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
+const categoryRoutes = require('./routes/category');
+const tagRoutes = require('./routes/tag');
 
-// Routes Import
-const impactRoute = require('./routes/impact');
-const authRoute = require('./routes/auth');
-const userRoute = require('./routes/user');
-const categoryRoute = require('./routes/category');
-const tagRoute = require('./routes/tag');
-
-//app
+// app
 const app = express();
 
-//DB
+// db
 mongoose
-    .connect(process.env.DATABASE, {useNewUrlParser : true, useCreateIndex : true, useFindAndModify : false, useUnifiedTopology:true})
-    .then(()=>console.log("MongoDB Connected"));
-//middlewares
+    .connect(process.env.DATABASE, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false })
+    .then(() => console.log('DB connected'))
+    .catch(err => {
+        console.log(err);
+    });
+
+// middlewares
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cookieParser());
-if(process.env.NODE_ENV === 'development'){
-    app.use(cors({origin : `${process.env.CLIENT_URL}`}));
+// cors
+if (process.env.NODE_ENV === 'development') {
+    app.use(cors({ origin: `${process.env.CLIENT_URL}` }));
 }
+// routes middleware
+app.use(blogRoutes);
+app.use(authRoutes);
+app.use(userRoutes);
+app.use(categoryRoutes);
+app.use(tagRoutes);
 
-//routes Middleware
-app.use(impactRoute);
-app.use(authRoute);
-app.use(userRoute);
-app.use(categoryRoute);
-app.use(tagRoute);
-
-//Port
+// port
 const port = process.env.PORT || 8000;
-app.listen(port, ()=>{
-    console.log(`Backend Server started at PORT ${port}`);
-})
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
