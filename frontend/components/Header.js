@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import NProgress from 'nprogress';
 import {APP_NAME} from '../config';
 import Router from 'next/router';
 import {signout, isAuth} from '../actions/auth'
@@ -16,6 +17,12 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
+
+import '../node_modules/nprogress/nprogress.css'
+
+Router.onRouteChangeStart = url => NProgress.start();
+Router.onRouteChangeComplete = url => NProgress.done();
+Router.onRouteChangeError = url => NProgress.done();
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
