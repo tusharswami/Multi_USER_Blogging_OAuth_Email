@@ -32,8 +32,10 @@ const Tag = () => {
     };
 
     const showTags = () => {
+        
         return tags.map((t, i) => {
             return (
+                
                 <button
                     onDoubleClick={() => deleteConfirm(t.slug)}
                     title="Double click to delete"
@@ -123,6 +125,7 @@ const Tag = () => {
             {showRemoved()}
             <div onMouseMove={mouseMoveHandler}>
                 {newTagFom()}
+                <p className="mb-1">Double Click on the Tag to delete it</p>
                 {showTags()}
             </div>
         </React.Fragment>
