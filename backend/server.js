@@ -11,6 +11,8 @@ const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 const categoryRoutes = require('./routes/category');
 const tagRoutes = require('./routes/tag');
+const formRoutes = require('./routes/form');
+
 
 // app
 const app = express();
@@ -37,6 +39,7 @@ app.use( authRoutes);
 app.use( userRoutes);
 app.use( categoryRoutes);
 app.use( tagRoutes);
+app.use( formRoutes);
 
 // port
 const port = process.env.PORT || 8000;
