@@ -1,23 +1,25 @@
 import Layout from '../../../components/Layout';
-import Admin from '../../../components/auth/Admin';
-import BlogCreate from '../../../components/crud/BlogCreate';
+import Private from '../../../components/auth/Private';
+import BlogRead from '../../../components/crud/BlogRead';
 import Link from 'next/link';
+import { isAuth } from '../../../actions/auth';
 
 const Blog = () => {
+    const username = isAuth() && isAuth().username;
     return (
         <Layout>
-            <Admin>
-                <div className="container-fluid">
+            <Private>
+                <div className="container">
                     <div className="row">
                         <div className="col-md-12 pt-5 pb-5">
-                            <h2>Create a new blog</h2>
+                            <h2>Manage blogs</h2>
                         </div>
                         <div className="col-md-12">
-                            <BlogCreate />
+                            <BlogRead username={username} />
                         </div>
                     </div>
                 </div>
-            </Admin>
+            </Private>
         </Layout>
     );
 };

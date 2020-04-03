@@ -14,11 +14,9 @@ const CategoryTag = () => {
                             <h2>Manage Categories and Tags</h2>
                         </div>
                         <div className="col-md-6">
-                            <p>Categories</p>
                             <Category />
                         </div>
                         <div className="col-md-6">
-                            <p>Tags</p>
                             <Tag />
                         </div>
                     </div>

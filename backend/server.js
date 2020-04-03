@@ -17,7 +17,7 @@ const app = express();
 
 // db
 mongoose
-    .connect(process.env.DATABASE, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false })
+    .connect(process.env.DATABASE_CLOUD, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false })
     .then(() => console.log('DB connected'))
     .catch(err => {
         console.log(err);
@@ -32,11 +32,11 @@ if (process.env.NODE_ENV === 'development') {
     app.use(cors({ origin: `${process.env.CLIENT_URL}` }));
 }
 // routes middleware
-app.use(blogRoutes);
-app.use(authRoutes);
-app.use(userRoutes);
-app.use(categoryRoutes);
-app.use(tagRoutes);
+app.use( blogRoutes);
+app.use( authRoutes);
+app.use( userRoutes);
+app.use( categoryRoutes);
+app.use( tagRoutes);
 
 // port
 const port = process.env.PORT || 8000;

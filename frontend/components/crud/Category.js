@@ -123,7 +123,6 @@ const Category = () => {
             {showRemoved()}
             <div onMouseMove={mouseMoveHandler}>
                 {newCategoryFom()}
-                <p>Double Click on the Category to delete it</p>
                 {showCategories()}
             </div>
         </React.Fragment>

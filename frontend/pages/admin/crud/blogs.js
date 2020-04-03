@@ -1,19 +1,19 @@
 import Layout from '../../../components/Layout';
 import Admin from '../../../components/auth/Admin';
-import BlogCreate from '../../../components/crud/BlogCreate';
+import BlogRead from '../../../components/crud/BlogRead';
 import Link from 'next/link';
 
 const Blog = () => {
     return (
         <Layout>
             <Admin>
-                <div className="container-fluid">
+                <div className="container">
                     <div className="row">
                         <div className="col-md-12 pt-5 pb-5">
-                            <h2>Create a new blog</h2>
+                            <h2>Manage blogs</h2>
                         </div>
                         <div className="col-md-12">
-                            <BlogCreate />
+                            <BlogRead />
                         </div>
                     </div>
                 </div>
