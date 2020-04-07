@@ -34,12 +34,12 @@ if (process.env.NODE_ENV === 'development') {
     app.use(cors({ origin: `${process.env.CLIENT_URL}` }));
 }
 // routes middleware
-app.use( blogRoutes);
-app.use( authRoutes);
-app.use( userRoutes);
-app.use( categoryRoutes);
-app.use( tagRoutes);
-app.use( formRoutes);
+app.use("/api", blogRoutes);
+app.use("/api", authRoutes);
+app.use("/api", userRoutes);
+app.use("/api", categoryRoutes);
+app.use("/api", tagRoutes);
+app.use("/api", formRoutes);
 
 // port
 const port = process.env.PORT || 8000;
