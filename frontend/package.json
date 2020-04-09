@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "description": "Frontend For SoFuture-Social Impact Resonation Platform",
+  "description": "Frontend For Multi_USER_Blogging_OAuth_Email",
   "main": "index.js",
   "scripts": {
     "dev": "next",

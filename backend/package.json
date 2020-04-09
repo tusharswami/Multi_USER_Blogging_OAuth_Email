@@ -1,7 +1,7 @@
 {
-  "name": "sofuture",
+  "name": "Multi_USER_Blogging_OAuth_Email",
   "version": "1.0.0",
-  "description": "Social Impact Resonation Platform",
+  "description": "Multi_USER_Blogging_OAuth_Email",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
